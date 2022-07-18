@@ -33,18 +33,16 @@ public class PersonController {
                     "\n 4. Thoát");
             Scanner scanner = new Scanner(System.in);
             String choose = scanner.nextLine();
+            TeacherService teacherService=new TeacherService();
             switch (choose) {
                 case "1":
-                    TeacherService teacherService = new TeacherService();
                     teacherService.add();
                     break;
                 case "2":
-                    TeacherService teacherService1 = new TeacherService();
-                    teacherService1.delete();
+                    teacherService.delete();
                     break;
                 case "3":
-                    TeacherService teacherService2 = new TeacherService();
-                    teacherService2.display();
+                    teacherService.display();
                     break;
                 case "4":
                     return;
@@ -61,18 +59,18 @@ public class PersonController {
                     "\n 4. Thoát");
             Scanner scanner = new Scanner(System.in);
             String choose = scanner.nextLine();
+            StudentService studentService=new StudentService();
             switch (choose) {
                 case "1":
-                    StudentService studentService = new StudentService();
+
                     studentService.add();
                     break;
                 case "2":
-                    StudentService studentService1 = new StudentService();
-                    studentService1.delete();
+
+                    studentService.delete();
                     break;
                 case "3":
-                    StudentService studentService2 = new StudentService();
-                    studentService2.display();
+                    studentService.display();
                     break;
                 case "4":
                     return;
