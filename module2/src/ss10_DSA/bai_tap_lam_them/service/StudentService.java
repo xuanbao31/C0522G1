@@ -35,9 +35,18 @@ public class StudentService implements PersonService {
 
         }
         return studentList;
-
     }
-
+    @Override
+    public void search() {
+        readFileStudent();
+        System.out.println("Nhập mã học sinh");
+        String checkCode=scanner.nextLine();
+        for (int i = 0; i < studentList.size(); i++) {
+            if (studentList.get(i).getCode().equals(checkCode)){
+                System.out.println(studentList.get(i));
+            }
+        }
+    }
 
     @Override
     public void add() {
@@ -89,4 +98,6 @@ public class StudentService implements PersonService {
             System.out.println(student);
         }
     }
+
+
 }

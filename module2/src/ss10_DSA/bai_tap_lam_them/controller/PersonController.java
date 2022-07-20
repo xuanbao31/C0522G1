@@ -56,7 +56,8 @@ public class PersonController {
             System.out.println("1. Thêm mới học viên" +
                     "\n 2. Xóa học viên." +
                     "\n 3. Xem Danh sách học viên" +
-                    "\n 4. Thoát");
+                    "\n 4. Tìm kiếm học viên" +
+                    "\n 5. Thoát");
             Scanner scanner = new Scanner(System.in);
             String choose = scanner.nextLine();
             StudentService studentService=new StudentService();
@@ -73,6 +74,9 @@ public class PersonController {
                     studentService.display();
                     break;
                 case "4":
+                  studentService.search();
+                  break;
+                case "5":
                     return;
             }
         } while (true);
