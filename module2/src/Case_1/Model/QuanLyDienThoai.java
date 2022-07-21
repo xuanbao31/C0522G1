@@ -1,13 +1,14 @@
 package Case_1.Model;
 
 public abstract class QuanLyDienThoai {
-    private  int id;
-    private  String namePhone;
+    private static int idTemp = 1;
+    private int id;
+    private String namePhone;
     private int soLuong;
-    private  String nhaSanXuat;
+    private String nhaSanXuat;
 
     public QuanLyDienThoai(int id, String namePhone, int soLuong, String nhaSanXuat) {
-        this.id = id;
+        this.id = idTemp++;
         this.namePhone = namePhone;
         this.soLuong = soLuong;
         this.nhaSanXuat = nhaSanXuat;

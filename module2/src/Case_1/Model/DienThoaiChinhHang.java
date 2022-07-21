@@ -4,8 +4,13 @@ public class DienThoaiChinhHang  extends QuanLyDienThoai{
     private  String thoiGianBaoHanh;
     private String phamViBaoHanh;
 
+    public DienThoaiChinhHang(int id, String namePhone, int soLuong, String nhaSanXuat, String thoiGianBaoHanh, String phamViBaoHanh) {
+        super(id, namePhone, soLuong, nhaSanXuat);
+        this.thoiGianBaoHanh = thoiGianBaoHanh;
+        this.phamViBaoHanh = phamViBaoHanh;
+    }
+
     public DienThoaiChinhHang(String thoiGianBaoHanh, String phamViBaoHanh) {
-        super();
         this.thoiGianBaoHanh = thoiGianBaoHanh;
         this.phamViBaoHanh = phamViBaoHanh;
     }
