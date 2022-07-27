@@ -1,6 +1,8 @@
 package ss10_DSA.bai_tap_lam_them.service;
 
 import ss10_DSA.bai_tap_lam_them.model.Teacher;
+import ss10_DSA.bai_tap_lam_them.untils.GetUntils;
+import ss10_DSA.bai_tap_lam_them.untils.Regex;
 import ss10_DSA.bai_tap_lam_them.untils.WriteAndReadFile;
 
 import java.util.ArrayList;
@@ -9,7 +11,7 @@ import java.util.Scanner;
 
 public class TeacherService implements PersonService {
     private static ArrayList<Teacher> teacherList = new ArrayList<>();
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
 
     public static void writeFileTeacher() {
         WriteAndReadFile.clearFile("src/ss10_DSA/bai_tap_lam_them/data/teacher.csv");
@@ -40,10 +42,8 @@ public class TeacherService implements PersonService {
         readFileTeacher();
         System.out.println("Nhập mã giảng viên");
         String code = scanner.nextLine();
-        System.out.println("Nhập tên ");
-        String name = scanner.nextLine();
-        System.out.println("Nhập ngày sinh");
-        String birthDay = scanner.nextLine();
+        String name = getName();
+        String birthDay= GetUntils.getDateOfBirth();
         System.out.println("Nhập giới tính");
         String gender = scanner.nextLine();
         System.out.println("Nhập trình độ chuyên môn");
@@ -94,5 +94,23 @@ public class TeacherService implements PersonService {
                 System.out.println(teacherList.get(i));
             }
         }
+    }
+    public static String getName() {
+        System.out.print("Nhập name: ");
+        String name = scanner.nextLine();
+        String[] arr = name.toLowerCase().trim().split("");
+        StringBuilder str = new StringBuilder().append(arr[0].toUpperCase());
+        for (int i = 1; i < arr.length; i++) {
+            if (!arr[i].equals(" ")) {
+                if (arr[i - 1].equals(" ")) {
+                    str.append(arr[i].toUpperCase());
+                } else {
+                    str.append(arr[i]);
+                }
+            } else if (!arr[i + 1].equals(" ")) {
+                str.append(arr[i]);
+            }
+        }
+        return str.toString();
     }
 }
